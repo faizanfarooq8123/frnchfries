@@ -1,52 +1,64 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 
-const Thead = () => {
+const Tbody = props =>{
+
+
+
+    const rows = props.adata.map((rowww,index) =>{
         return (
-            <thead>
             <tr>
-              <th>Name</th>
-              <th>Class</th>
+                <td>
+                    {rowww.name}
+                </td>
+                <td>
+                    {rowww.job}
+                </td>
+                <td>
+                    <button onClick={()=> props.ayLouJee(index) }>
+                        Delete
+                    </button>
+                </td>
+
             </tr>
-          </thead>
-        )
+        )    
+        })
+    return(    
+        <tbody>
+            {rows}
+        </tbody>
+    )
 }
-const Tbody = propss => {
-    return (
-    <tbody>
-      <tr>
-        <td>Charlie</td>
-        <td>Janitor</td>
-      </tr>
-      <tr>
-        <td>Mac</td>
-        <td>Bouncer</td>
-      </tr>
-      <tr>
-        <td>Dee</td>
-        <td>Aspiring actress</td>
-      </tr>
-      <tr>
-        <td>Dennis</td>
-        <td>Bartender</td>
-      </tr>
-    </tbody>
+
+const Thead = () =>{
+    return(
+        <thead>
+            <th>
+                Name
+            </th>
+            <th>
+                Class
+            </th>                    
+        </thead>
     )
 }
 
 class Table extends Component{
-    render() {        
-        console.log("S");        
-        console.log(this.props.cdc);
-        return (
-            <table>
-                <Thead></Thead>
-                <Tbody thisdata = { this.props.cdc }></Tbody>
-            </table>
+    render(){
+        console.log("Ye data vekh lou");
+        console.log(this.props);
 
+        const adata = this.props.cDat;
+        const func = this.props.yeWalaFunction;
+
+        return(
+            <table>
+                <Tbody adata={ adata } ayLouJee= { func } />
+                <Thead/>                
+            </table>
+            
         );
     }
 }
-
 
 export default Table;

@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
-import Table from "./Table.js";
+import Table from './Table.js'
+import Form from './Form.js'
 
-// const cData () => {
 
-// }
+
+
 
 class App extends Component {
-  render() {
-    const cData = [
+  state = {
+    cData: [
       {
         name: 'Charlie',
         job: 'Janitor',
@@ -26,11 +27,31 @@ class App extends Component {
         job: 'Bartender',
       },
     ]
-    console.log(cData);
-    
+  }
+
+  handleSubmit = cheez => {
+    this.setState({
+      cData: [...this.state.cData,cheez ]
+    })
+  }
+
+  removeCharacter = index => {
+    const { cData }  = this.state
+  
+    this.setState({
+      cData: cData.filter((cData, i) => {
+        return i !== index
+      }),
+    })
+  }
+
+  render() {      
     return (   
       <div className="container">
-        <Table cdc={ cData } /> 
+        <Table cDat={ this.state.cData } yeWalaFunction= { this.removeCharacter } ></Table>
+        <div>
+          <Form handle= { this.handleSubmit }></Form>
+        </div>  
       </div>   
              
     );
