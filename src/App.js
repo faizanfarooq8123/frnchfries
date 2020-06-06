@@ -1,59 +1,56 @@
 import React, { Component } from 'react';
 import './App.css';
 import Table from './Table.js'
-import Form from './Form.js'
-
-
+import { AppBar,Typography,Toolbar,Button,IconButton } from '@material-ui/core'
+import MenuIcon from '@material-ui/icons/Menu'
 
 
 
 class App extends Component {
-  state = {
-    cData: [
+  render() {      
+    const charArray = [
       {
-        name: 'Charlie',
-        job: 'Janitor',
+        name:"Ak",
+        class:"CS",
       },
       {
-        name: 'Mac',
-        job: 'Bouncer',
+        name:"Jawad",
+        class:"CS",
       },
       {
-        name: 'Dee',
-        job: 'Aspring actress',
+        name:"Farhad",
+        class:"CS",
       },
       {
-        name: 'Dennis',
-        job: 'Bartender',
+        name:"Faizan",
+        class:"Waila.",
       },
     ]
-  }
-
-  handleSubmit = cheez => {
-    this.setState({
-      cData: [...this.state.cData,cheez ]
-    })
-  }
-
-  removeCharacter = index => {
-    const { cData }  = this.state
-  
-    this.setState({
-      cData: cData.filter((cData, i) => {
-        return i !== index
-      }),
-    })
-  }
-
-  render() {      
     return (   
       <div className="container">
-        <Table cDat={ this.state.cData } yeWalaFunction= { this.removeCharacter } ></Table>
-        <div>
-          <Form handle= { this.handleSubmit }></Form>
-        </div>  
-      </div>   
-             
+        <div className="">
+          <AppBar position="static">
+          <Toolbar>
+            <IconButton edge="start" className="" color="inherit" aria-label="menu">
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" className="">
+              News      |
+            </Typography>
+            <Typography variant="h6" className="">
+              Sports      |
+            </Typography>
+            <Typography variant="h6" className="">
+              Politics      |
+            </Typography>
+            <Button color="inherit">Login</Button>
+          </Toolbar>
+        </AppBar>
+      </div>
+      <div>
+      <Table isNaam = { charArray }  ></Table>
+      </div>
+      </div>  
     );
   }
 }
