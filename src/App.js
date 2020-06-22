@@ -1,56 +1,31 @@
 import React, { Component } from 'react';
-import './App.css';
-import Table from './Table.js'
-import { AppBar,Typography,Toolbar,Button,IconButton } from '@material-ui/core'
-import MenuIcon from '@material-ui/icons/Menu'
-
+import Navbar from './Navbar'
+import List from './List'
+import ThemeContextProvider from './ThemeContext';
+import  TButton  from './ToggleButton';
+import AuthContextProvider from './authContext';
+import Songlist from './Songlist';
+import BookContextProvider from './BookContext'
+import Form from './Form';
 
 
 class App extends Component {
-  render() {      
-    const charArray = [
-      {
-        name:"Ak",
-        class:"CS",
-      },
-      {
-        name:"Jawad",
-        class:"CS",
-      },
-      {
-        name:"Farhad",
-        class:"CS",
-      },
-      {
-        name:"Faizan",
-        class:"Waila.",
-      },
-    ]
+  render() {    
+    
     return (   
-      <div className="container">
-        <div className="">
-          <AppBar position="static">
-          <Toolbar>
-            <IconButton edge="start" className="" color="inherit" aria-label="menu">
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" className="">
-              News      |
-            </Typography>
-            <Typography variant="h6" className="">
-              Sports      |
-            </Typography>
-            <Typography variant="h6" className="">
-              Politics      |
-            </Typography>
-            <Button color="inherit">Login</Button>
-          </Toolbar>
-        </AppBar>
-      </div>
-      <div>
-      <Table isNaam = { charArray }  ></Table>
-      </div>
-      </div>  
+      <div className='container App'>   
+        <ThemeContextProvider>
+          <AuthContextProvider>  
+            <Navbar></Navbar>
+            <BookContextProvider>
+              <List/>
+              <Form />
+            </BookContextProvider>            
+            {/* <TButton/>  */}
+          </AuthContextProvider>
+        </ThemeContextProvider>
+        {/* <Songlist></Songlist> */}
+     </div>
     );
   }
 }

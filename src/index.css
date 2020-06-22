@@ -161,7 +161,11 @@ sub {
 sup {
   top: -0.5em;
 }
-
+.center {
+  text-align: center;
+  color:gold;
+  margin-bottom: 50px;
+}
 /* Embedded content
    ========================================================================== */
 /**
@@ -396,6 +400,10 @@ body {
   font-size: 1rem;
 }
 
+ul{
+  list-style-type: none;
+}
+
 p,
 ol,
 ul,
@@ -403,7 +411,22 @@ dl,
 table {
   margin: 0 0 1.5rem 0;
 }
-
+/* .App{
+  background: #cdcdcd;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 700px;
+  color: #eee;
+} */
+.book-list .indibook:hover {
+  text-decoration: line-through;
+}
+.indibook{
+  padding-left: 1%;
+  margin-top:10px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
 ul li ul {
   margin-bottom: 0;
 }
